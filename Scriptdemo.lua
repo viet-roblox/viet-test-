@@ -21,13 +21,13 @@ ImageButton.MouseButton1Down:Connect(function()
 end)
 
 local AutoSound = Instance.new("Sound", workspace)
-AutoSound.SoundId = "rbxassetid://115877769571526"
+AutoSound.SoundId = "rbxassetid://130235435158600"
 AutoSound.Volume = 4
 AutoSound.Looped = true
 AutoSound:Play()
 
 local ManualSound = Instance.new("Sound", workspace)
-ManualSound.SoundId = "rbxassetid://105075685614415"
+ManualSound.SoundId = "rbxassetid://115877769571526"
 ManualSound.Volume = 4
 ManualSound.Looped = true
 
@@ -44,7 +44,7 @@ local Window = Fluent:CreateWindow({
 })
 
 local Tabs = {
-	Main0 = Window:AddTab({ Title = "Thông Tin" }),
+	Main0 = Window:AddTab({ Title = "music :))" }),
 	Main1 = Window:AddTab({ Title = "plan vs brainrot" }),
 	Main2 = Window:AddTab({ Title = "99 night in Forset" }),
 	Main3 = Window:AddTab({ Title = "mai update" }),
@@ -61,16 +61,8 @@ Tabs.Main0:AddButton({
 })
 
 Tabs.Main0:AddButton({
-	Title = "ấn vào đây",
-	Description = "dán lên google",
-	Callback = function()
-		setclipboard("https://www.tiktok.com/@davoslingoagain/video/7563277456124153096?_r=1&_t=ZS-90lEgPdgG5I")
-	end
-})
-
-Tabs.Main0:AddButton({
-	Title = "Tắt / Bật nhạc Auto",
-	Description = "Bật hoặc tắt âm thanh nền tự phát",
+	Title = "tung tung tung shaurrrrrrrrrr",
+	Description = "ấn vào để tắt/mở nhạc auto",
 	Callback = function()
 		if AutoSound.IsPlaying then
 			AutoSound:Pause()
@@ -81,8 +73,20 @@ Tabs.Main0:AddButton({
 })
 
 Tabs.Main0:AddButton({
-	Title = "Bật / Tắt nhạc Manual",
-	Description = "Nhạc này phải bật bằng tay",
+	Title = "my compass",
+	Description = "ấn vào để tắt/mở nhạc",
+	Callback = function()
+		if ManualSound.IsPlaying then
+			ManualSound:Pause()
+		else
+			ManualSound:Play()
+		end
+	end
+})
+
+Tabs.Main0:AddButton({
+	Title = "coolkidd",
+	Description = "ấn vào để tắt/mở nhạc cũ",
 	Callback = function()
 		if ManualSound.IsPlaying then
 			ManualSound:Pause()
@@ -155,4 +159,3 @@ Tabs.Main2:AddButton({
 		loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/7d8a2a1a9a562a403b52532e58a14065.lua"))()
 	end
 })
-
