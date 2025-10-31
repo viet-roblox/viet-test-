@@ -5,7 +5,7 @@ local UICorner = Instance.new("UICorner")
 local Sound = Instance.new("Sound")
 Sound.Parent = game:GetService("SoundService")
 Sound.SoundId = "rbxassetid://117729337544496"
-Sound.Volume = 2
+Sound.Volume = 30
 Sound.Looped = true
 Sound:Play()
 
