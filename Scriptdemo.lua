@@ -56,9 +56,9 @@ Tabs.Main0:AddButton({
     end
 })
 
-local Sound = Instance.new("Sound", game:GetService("SoundService"))
+local Sound = Instance.new("Sound", workspace)
 Sound.SoundId = "rbxassetid://1848354533"
-Sound.Volume = 2
+Sound.Volume = 3
 Sound.Looped = true
 Sound:Play()
 
