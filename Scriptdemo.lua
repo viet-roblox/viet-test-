@@ -22,7 +22,7 @@ end)
 
 -- 🔊 Âm thanh tự phát khi GUI chạy
 local Sound = Instance.new("Sound", workspace)
-Sound.SoundId = "rbxassetid://117729337544496" -- ID bạn yêu cầu
+Sound.SoundId = "rbxassetid://117729337544496"
 Sound.Volume = 4
 Sound.Looped = true
 Sound:Play()
