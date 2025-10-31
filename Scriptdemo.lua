@@ -22,7 +22,7 @@ end)
 
 local Sound = Instance.new("Sound", workspace)
 Sound.SoundId = "rbxassetid://115877769571526"
-Sound.Volume = 4
+Sound.Volume = 33
 Sound.Looped = true
 Sound:Play()
 
@@ -64,8 +64,50 @@ Tabs.Main0:AddButton({
 })
 
 Tabs.Main0:AddButton({
-	Title = "Tắt / Bật nhạc",
-	Description = "Bật hoặc tắt âm thanh nền",
+	Title = "ganad.Volume = 33
+Sound.Looped = true
+Sound:Play()
+
+local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+repeat task.wait() until game:IsLoaded()
+local Window = Fluent:CreateWindow({
+	Title = "Viet",
+	SubTitle = "tổng hợp",
+	TabWidth = 157,
+	Size = UDim2.fromOffset(450, 300),
+	Acrylic = true,
+	Theme = "Amethyst",
+	MinimizeKey = Enum.KeyCode.End
+})
+
+local Tabs = {
+	Main0 = Window:AddTab({ Title = "Thông Tin" }),
+	Main1 = Window:AddTab({ Title = "plan vs brainrot" }),
+	Main2 = Window:AddTab({ Title = "99 night in Forset" }),
+	Main3 = Window:AddTab({ Title = "mai update" }),
+	Main4 = Window:AddTab({ Title = "mai update" }),
+	Main5 = Window:AddTab({ Title = "mai update" }),
+}
+
+Tabs.Main0:AddButton({
+	Title = "Discord",
+	Description = "viet dep zai",
+	Callback = function()
+		setclipboard("https://discord.com/channels/@me/1251540671890718723")
+	end
+})
+
+Tabs.Main0:AddButton({
+	Title = "ấn vào đây",
+	Description = "dán lên google",
+	Callback = function()
+		setclipboard("https://www.tiktok.com/@davoslingoagain/video/7563277456124153096?_r=1&_t=ZS-90lEgPdgG5I")
+	end
+})
+
+Tabs.Main0:AddButton({
+	Title = "my compass",
+	Description = "ấn vào đây để tắt hoặc bật",
 	Callback = function()
 		if Sound.IsPlaying then
 			Sound:Pause()
