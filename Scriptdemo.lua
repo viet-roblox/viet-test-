@@ -13,25 +13,23 @@ ImageButton.Size = UDim2.new(0, 40, 0, 40)
 ImageButton.Draggable = true
 ImageButton.Image = "http://www.roblox.com/asset/?id=71119154056117"
 
-UICorner.CornerRadius = UDim.new(1, 10) 
+UICorner.CornerRadius = UDim.new(1, 0)
 UICorner.Parent = ImageButton
 
 ImageButton.MouseButton1Down:Connect(function()
 	game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.End, false, game)
 end)
 
--- 🔊 Âm thanh tự phát khi GUI chạy
 local Sound = Instance.new("Sound", workspace)
-Sound.SoundId = "rbxassetid://117729337544496"
+Sound.SoundId = "rbxassetid://115877769571526"
 Sound.Volume = 4
 Sound.Looped = true
 Sound:Play()
 
--- 🪟 Fluent UI
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 repeat task.wait() until game:IsLoaded()
 local Window = Fluent:CreateWindow({
-	Title = "Viet ",
+	Title = "Viet",
 	SubTitle = "tổng hợp",
 	TabWidth = 157,
 	Size = UDim2.fromOffset(450, 300),
@@ -140,3 +138,4 @@ Tabs.Main2:AddButton({
 		loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/7d8a2a1a9a562a403b52532e58a14065.lua"))()
 	end
 })
+
