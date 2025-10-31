@@ -154,12 +154,3 @@ Tabs.Main2:AddButton({
 		loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/7d8a2a1a9a562a403b52532e58a14065.lua"))()
 	end
 })
-
--- Khi GUI bị xóa thì tắt toàn bộ nhạc
-ScreenGui.Destroying:Connect(function()
-	for _, s in pairs(Main0Sounds) do
-		if s.IsPlaying then
-			s:Stop()
-		end
-	end
-end)
