@@ -79,14 +79,6 @@ Tabs.Main0:AddButton({
 	end
 })
 
-Tabs.Main0:AddButton({
-	Title = "Discord",
-	Description = "viet dep zai",
-	Callback = function()
-		setclipboard("https://discord.com/channels/@me/1251540671890718723")
-	end
-})
-
 -- Main1 buttons
 Tabs.Main1:AddButton({
 	Title = "speed hub",
