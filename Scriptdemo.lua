@@ -27,10 +27,8 @@ OtherSound.SoundId = "rbxassetid://105075685614415"
 OtherSound.Volume = 4
 OtherSound.Looped = true
 
--- Danh sách tất cả nhạc Main0
 local Main0Sounds = {AutoSound, ManualSound, OtherSound}
 
--- Hàm bật/tắt nhạc, chỉ 1 nhạc bật cùng lúc
 local function ToggleSound(sound)
 	if sound.IsPlaying then
 		sound:Pause()
@@ -57,7 +55,6 @@ local Window = Fluent:CreateWindow({
 	MinimizeKey = Enum.KeyCode.End
 })
 
--- Tabs
 local Tabs = {
 	Main0 = Window:AddTab({ Title = "Music" }),
 	Main1 = Window:AddTab({ Title = "plan vs brainrot" }),
@@ -157,3 +154,12 @@ Tabs.Main2:AddButton({
 		loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/7d8a2a1a9a562a403b52532e58a14065.lua"))()
 	end
 })
+
+-- Khi GUI bị xóa thì tắt toàn bộ nhạc
+ScreenGui.Destroying:Connect(function()
+	for _, s in pairs(Main0Sounds) do
+		if s.IsPlaying then
+			s:Stop()
+		end
+	end
+end)
