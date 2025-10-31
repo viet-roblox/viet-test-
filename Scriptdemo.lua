@@ -20,17 +20,43 @@ ImageButton.MouseButton1Down:Connect(function()
 	game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.End, false, game)
 end)
 
+-- Nhạc auto
 local AutoSound = Instance.new("Sound", workspace)
 AutoSound.SoundId = "rbxassetid://130235435158600"
 AutoSound.Volume = 4
 AutoSound.Looped = true
 AutoSound:Play()
 
+-- Nhạc bình thường
 local ManualSound = Instance.new("Sound", workspace)
 ManualSound.SoundId = "rbxassetid://115877769571526"
 ManualSound.Volume = 4
 ManualSound.Looped = true
 
+-- Bạn có thể thêm nhạc khác vào đây
+local OtherSound = Instance.new("Sound", workspace)
+OtherSound.SoundId = "rbxassetid://105075685614415" -- ví dụ nhạc thứ 3
+OtherSound.Volume = 4
+OtherSound.Looped = true
+
+-- Danh sách lưu tất cả Sound của Main0
+local Main0Sounds = {AutoSound, ManualSound, OtherSound}
+
+-- Hàm bật/tắt nhạc, chỉ cho phép 1 nhạc bật cùng lúc
+local function ToggleSound(sound)
+	if sound.IsPlaying then
+		sound:Pause()
+	else
+		for _, s in pairs(Main0Sounds) do
+			if s ~= sound and s.IsPlaying then
+				s:Pause()
+			end
+		end
+		sound:Play()
+	end
+end
+
+-- Fluent UI
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 repeat task.wait() until game:IsLoaded()
 local Window = Fluent:CreateWindow({
@@ -43,14 +69,40 @@ local Window = Fluent:CreateWindow({
 	MinimizeKey = Enum.KeyCode.End
 })
 
+-- Tabs
 local Tabs = {
-	Main0 = Window:AddTab({ Title = "music :))" }),
+	Main0 = Window:AddTab({ Title = "Music" }),
 	Main1 = Window:AddTab({ Title = "plan vs brainrot" }),
 	Main2 = Window:AddTab({ Title = "99 night in Forset" }),
 	Main3 = Window:AddTab({ Title = "mai update" }),
 	Main4 = Window:AddTab({ Title = "mai update" }),
 	Main5 = Window:AddTab({ Title = "mai update" }),
 }
+
+-- Main0 buttons
+Tabs.Main0:AddButton({
+	Title = "Nhạc Auto",
+	Description = "Ấn để bật/tắt nhạc auto",
+	Callback = function()
+		ToggleSound(AutoSound)
+	end
+})
+
+Tabs.Main0:AddButton({
+	Title = "My Compass",
+	Description = "Ấn để bật/tắt nhạc bình thường",
+	Callback = function()
+		ToggleSound(ManualSound)
+	end
+})
+
+Tabs.Main0:AddButton({
+	Title = "Other Music",
+	Description = "Ấn để bật/tắt nhạc thứ 3",
+	Callback = function()
+		ToggleSound(OtherSound)
+	end
+})
 
 Tabs.Main0:AddButton({
 	Title = "Discord",
@@ -60,42 +112,7 @@ Tabs.Main0:AddButton({
 	end
 })
 
-Tabs.Main0:AddButton({
-	Title = "tung tung tung shaurrrrrrrrrr",
-	Description = "ấn vào để tắt/mở nhạc auto",
-	Callback = function()
-		if AutoSound.IsPlaying then
-			AutoSound:Pause()
-		else
-			AutoSound:Play()
-		end
-	end
-})
-
-Tabs.Main0:AddButton({
-	Title = "my compass",
-	Description = "ấn vào để tắt/mở nhạc",
-	Callback = function()
-		if ManualSound.IsPlaying then
-			ManualSound:Pause()
-		else
-			ManualSound:Play()
-		end
-	end
-})
-
-Tabs.Main0:AddButton({
-	Title = "coolkidd",
-	Description = "ấn vào để tắt/mở nhạc cũ",
-	Callback = function()
-		if ManualSound.IsPlaying then
-			ManualSound:Pause()
-		else
-			ManualSound:Play()
-		end
-	end
-})
-
+-- Main1 buttons
 Tabs.Main1:AddButton({
 	Title = "speed hub",
 	Description = "có key",
@@ -120,6 +137,7 @@ Tabs.Main1:AddButton({
 	end
 })
 
+-- Main2 buttons
 Tabs.Main2:AddButton({
 	Title = "cao mod script kaitun auto fram day",
 	Description = "cre: caomod",
