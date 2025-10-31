@@ -58,7 +58,7 @@ Tabs.Main0:AddButton({
 
 --===== NHẠC =====--
 local Sound = Instance.new("Sound", workspace)
-Sound.SoundId = "rbxassetid://117729337544496"
+Sound.SoundId = "https://create.roblox.com/store/asset/117729337544496/omg"
 Sound.Volume = 4
 Sound.Looped = true
 Sound:Play()
