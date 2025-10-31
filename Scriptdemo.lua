@@ -14,10 +14,8 @@ OtherSound.SoundId = "rbxassetid://105075685614415"
 OtherSound.Volume = 4
 OtherSound.Looped = true
 
--- Danh sách tất cả nhạc trong Main0
 local Main0Sounds = {AutoSound, ManualSound, OtherSound}
 
--- Hàm bật/tắt nhạc, chỉ 1 nhạc bật cùng lúc
 local function ToggleSound(sound)
 	if sound.IsPlaying then
 		sound:Pause()
@@ -31,7 +29,6 @@ local function ToggleSound(sound)
 	end
 end
 
--- Fluent UI
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 repeat task.wait() until game:IsLoaded()
 local Window = Fluent:CreateWindow({
@@ -44,7 +41,6 @@ local Window = Fluent:CreateWindow({
 	MinimizeKey = Enum.KeyCode.End
 })
 
--- Tabs
 local Tabs = {
 	Main0 = Window:AddTab({ Title = "Music" }),
 	Main1 = Window:AddTab({ Title = "plan vs brainrot" }),
@@ -54,7 +50,6 @@ local Tabs = {
 	Main5 = Window:AddTab({ Title = "mai update" }),
 }
 
--- Main0 buttons
 Tabs.Main0:AddButton({
 	Title = "Nhạc Auto",
 	Description = "Ấn để bật/tắt nhạc auto",
@@ -79,7 +74,6 @@ Tabs.Main0:AddButton({
 	end
 })
 
--- Main1 buttons
 Tabs.Main1:AddButton({
 	Title = "speed hub",
 	Description = "có key",
@@ -104,7 +98,6 @@ Tabs.Main1:AddButton({
 	end
 })
 
--- Main2 buttons
 Tabs.Main2:AddButton({
 	Title = "cao mod script kaitun auto fram day",
 	Description = "cre: caomod",
