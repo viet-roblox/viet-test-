@@ -33,12 +33,38 @@ local Window = Fluent:CreateWindow({
 })
 
 local Tabs = {
+	Main0 = Window:AddTab({ Title = "Music" }),
 	Main1 = Window:AddTab({ Title = "plan vs brainrot" }),
 	Main2 = Window:AddTab({ Title = "mai update " }),
 	Main3 = Window:AddTab({ Title = "mai update" }),
 	Main4 = Window:AddTab({ Title = "mai update" }),
 	Main5 = Window:AddTab({ Title = "mai update" }),
 }
+
+-- Tab Music (Main0)
+Tabs.Main0:AddButton({
+	Title = "Play Music",
+	Description = "Phát nhạc tự động",
+	Callback = function()
+		local AutoSound = Instance.new("Sound", workspace)
+		AutoSound.SoundId = "rbxassetid://117729337544496" -- ID nhạc của bạn
+		AutoSound.Volume = 4
+		AutoSound.Looped = true
+		AutoSound:Play()
+	end
+})
+
+Tabs.Main0:AddButton({
+	Title = "Stop Music",
+	Description = "Tắt nhạc",
+	Callback = function()
+		for _, sound in pairs(workspace:GetChildren()) do
+			if sound:IsA("Sound") then
+				sound:Stop()
+			end
+		end
+	end
+})
 
 -- Main1 buttons
 Tabs.Main1:AddButton({
@@ -105,3 +131,4 @@ Tabs.Main2:AddButton({
 		loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/7d8a2a1a9a562a403b52532e58a14065.lua"))()
 	end
 })
+
