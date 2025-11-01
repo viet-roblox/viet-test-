@@ -14,8 +14,10 @@ OtherSound.SoundId = "rbxassetid://105075685614415"
 OtherSound.Volume = 4
 OtherSound.Looped = true
 
+-- Danh sách tất cả nhạc trong Main0
 local Main0Sounds = {AutoSound, ManualSound, OtherSound}
 
+-- Hàm bật/tắt nhạc, chỉ 1 nhạc bật cùng lúc
 local function ToggleSound(sound)
 	if sound.IsPlaying then
 		sound:Pause()
@@ -29,6 +31,7 @@ local function ToggleSound(sound)
 	end
 end
 
+-- Fluent UI
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 repeat task.wait() until game:IsLoaded()
 local Window = Fluent:CreateWindow({
@@ -41,6 +44,7 @@ local Window = Fluent:CreateWindow({
 	MinimizeKey = Enum.KeyCode.End
 })
 
+-- Tabs
 local Tabs = {
 	Main0 = Window:AddTab({ Title = "Music" }),
 	Main1 = Window:AddTab({ Title = "plan vs brainrot" }),
@@ -50,6 +54,7 @@ local Tabs = {
 	Main5 = Window:AddTab({ Title = "mai update" }),
 }
 
+-- Main0 buttons
 Tabs.Main0:AddButton({
 	Title = "Nhạc Auto",
 	Description = "Ấn để bật/tắt nhạc auto",
@@ -74,6 +79,15 @@ Tabs.Main0:AddButton({
 	end
 })
 
+Tabs.Main0:AddButton({
+	Title = "Discord",
+	Description = "viet dep zai",
+	Callback = function()
+		setclipboard("https://discord.com/channels/@me/1251540671890718723")
+	end
+})
+
+-- Main1 buttons
 Tabs.Main1:AddButton({
 	Title = "speed hub",
 	Description = "có key",
@@ -87,54 +101,6 @@ Tabs.Main1:AddButton({
 	Description = "",
 	Callback = function()
 		loadstring(game:HttpGet("https://github.com/collectorhenfi-wq/Hendarscriptt/raw/refs/heads/main/Plantvsbrainrotupdate.txt"))()
-	end
-})
-
-Tabs.Main1:AddButton({
-	Title = "cilent scripts",
-	Description = "key:700member1234",
-	Callback = function()
-		loadstring(game:HttpGet("https://pastefy.app/2DsuRU5s/raw"))()
-	end
-})
-
-Tabs.Main2:AddButton({
-	Title = "cao mod script kaitun auto fram day",
-	Description = "cre: caomod",
-	Callback = function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/caomod2077/Script/refs/heads/main/FNDayFarm.lua"))()
-	end
-})
-
-Tabs.Main2:AddButton({
-	Title = "fox name",
-	Description = "",
-	Callback = function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/caomod2077/Script/refs/heads/main/FoxnameHub.lua"))()
-	end
-})
-
-Tabs.Main2:AddButton({
-	Title = "voidware",
-	Description = "",
-	Callback = function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/VW-Add/main/nightsintheforest.lua", true))()
-	end
-})
-
-Tabs.Main2:AddButton({
-	Title = "RINGTA HUB",
-	Description = "",
-	Callback = function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/wefwef127382/99daysloader.github.io/refs/heads/main/ringta.lua"))()
-	end
-})
-
-Tabs.Main2:AddButton({
-	Title = "ronix hub",
-	Description = "",
-	Callback = function()
-		loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/7d8a2a1a9a562a403b52532e58a14065.lua"))()
 	end
 })
 
@@ -186,4 +152,5 @@ Tabs.Main2:AddButton({
 		loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/7d8a2a1a9a562a403b52532e58a14065.lua"))()
 	end
 })
+
 
