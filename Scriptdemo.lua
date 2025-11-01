@@ -1,23 +1,48 @@
+local ScreenGui = Instance.new("ScreenGui")
+local ImageButton = Instance.new("ImageButton")
+local UICorner = Instance.new("UICorner")
+
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+ImageButton.Parent = ScreenGui
+ImageButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ImageButton.BorderSizePixel = 0
+ImageButton.Position = UDim2.new(0.10615778, 0, 0.16217947, 0)
+ImageButton.Size = UDim2.new(0, 40, 0, 40)
+ImageButton.Draggable = true
+ImageButton.Image = "http://www.roblox.com/asset/?id=71119154056117"
+
+UICorner.CornerRadius = UDim.new(1, 0)
+UICorner.Parent = ImageButton
+
+ImageButton.MouseButton1Down:Connect(function()
+	game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.End, false, game)
+end)
+
+-- Nhạc auto
 local AutoSound = Instance.new("Sound", workspace)
 AutoSound.SoundId = "rbxassetid://130235435158600"
 AutoSound.Volume = 4
 AutoSound.Looped = true
 AutoSound:Play()
 
+-- Nhạc bình thường
 local ManualSound = Instance.new("Sound", workspace)
 ManualSound.SoundId = "rbxassetid://115877769571526"
 ManualSound.Volume = 4
 ManualSound.Looped = true
 
+-- Bạn có thể thêm nhạc khác vào đây
 local OtherSound = Instance.new("Sound", workspace)
-OtherSound.SoundId = "rbxassetid://105075685614415"
+OtherSound.SoundId = "rbxassetid://105075685614415" -- ví dụ nhạc thứ 3
 OtherSound.Volume = 4
 OtherSound.Looped = true
 
--- Danh sách tất cả nhạc trong Main0
+-- Danh sách lưu tất cả Sound của Main0
 local Main0Sounds = {AutoSound, ManualSound, OtherSound}
 
--- Hàm bật/tắt nhạc, chỉ 1 nhạc bật cùng lúc
+-- Hàm bật/tắt nhạc, chỉ cho phép 1 nhạc bật cùng lúc
 local function ToggleSound(sound)
 	if sound.IsPlaying then
 		sound:Pause()
