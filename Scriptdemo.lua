@@ -1,52 +1,39 @@
--- Xóa GUI cũ nếu đã tồn tại
-for _, gui in pairs(game:GetService("CoreGui"):GetChildren()) do
-	if gui.Name == "VietMusicGUI" then
-		gui:Destroy()
-	end
-end
-
--- Tạo GUI mới
+--// 🧠 GUI bật/tắt script
 local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Name = "VietMusicGUI"
+local ImageButton = Instance.new("ImageButton")
+local UICorner = Instance.new("UICorner")
+
 ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
--- Nhạc
-local AutoSound = Instance.new("Sound", workspace)
-AutoSound.SoundId = "rbxassetid://130235435158600"
-AutoSound.Volume = 4
-AutoSound.Looped = true
-AutoSound:Play()
+ImageButton.Parent = ScreenGui
+ImageButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ImageButton.BorderSizePixel = 0
+ImageButton.Position = UDim2.new(0.10615778, 0, 0.16217947, 0)
+ImageButton.Size = UDim2.new(0, 40, 0, 40)
+ImageButton.Draggable = true
+ImageButton.Image = "http://www.roblox.com/asset/?id=71119154056117"
 
-local ManualSound = Instance.new("Sound", workspace)
-ManualSound.SoundId = "rbxassetid://115877769571526"
-ManualSound.Volume = 4
-ManualSound.Looped = true
+UICorner.CornerRadius = UDim.new(1, 10) 
+UICorner.Parent = ImageButton
 
-local OtherSound = Instance.new("Sound", workspace)
-OtherSound.SoundId = "rbxassetid://105075685614415"
-OtherSound.Volume = 4
-OtherSound.Looped = true
+-- Khi bấm nút → ẩn/hiện giao diện Fluent UI
+ImageButton.MouseButton1Down:Connect(function()
+	game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.End, false, game)
+end)
 
-local Main0Sounds = {AutoSound, ManualSound, OtherSound}
+--// 🔊 Âm thanh tự phát khi GUI chạy
+local Sound = Instance.new("Sound", workspace)
+Sound.SoundId = "rbxassetid://117729337544496" -- 👈 thay ID khác nếu bạn có audio public
+Sound.Volume = 4
+Sound.Looped = true
+Sound:Play()
 
-local function ToggleSound(sound)
-	if sound.IsPlaying then
-		sound:Pause()
-	else
-		for _, s in pairs(Main0Sounds) do
-			if s ~= sound and s.IsPlaying then
-				s:Pause()
-			end
-		end
-		sound:Play()
-	end
-end
-
--- Fluent UI
+--// 🪟 Fluent UI setup
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 repeat task.wait() until game:IsLoaded()
 local Window = Fluent:CreateWindow({
-	Title = "Viet",
+	Title = "Viet ",
 	SubTitle = "tổng hợp",
 	TabWidth = 157,
 	Size = UDim2.fromOffset(450, 300),
@@ -56,7 +43,7 @@ local Window = Fluent:CreateWindow({
 })
 
 local Tabs = {
-	Main0 = Window:AddTab({ Title = "Music" }),
+	Main0 = Window:AddTab({ Title = "Thông Tin" }),
 	Main1 = Window:AddTab({ Title = "plan vs brainrot" }),
 	Main2 = Window:AddTab({ Title = "99 night in Forset" }),
 	Main3 = Window:AddTab({ Title = "mai update" }),
@@ -64,32 +51,51 @@ local Tabs = {
 	Main5 = Window:AddTab({ Title = "mai update" }),
 }
 
--- Main0 buttons
+--// 📎 Tab Thông Tin
 Tabs.Main0:AddButton({
-	Title = "Nhạc Auto",
-	Description = "Ấn để bật/tắt nhạc auto",
+	Title = "Discord",
+	Description = "viet dep zai",
 	Callback = function()
-		ToggleSound(AutoSound)
+		setclipboard("https://discord.com/channels/@me/1251540671890718723")
 	end
 })
 
 Tabs.Main0:AddButton({
-	Title = "My Compass",
-	Description = "Ấn để bật/tắt nhạc bình thường",
+	Title = "ấn vào đây",
+	Description = "dán lên google",
 	Callback = function()
-		ToggleSound(ManualSound)
+		setclipboard("https://www.tiktok.com/@davoslingoagain/video/7563277456124153096?_r=1&_t=ZS-90lEgPdgG5I")
 	end
 })
 
 Tabs.Main0:AddButton({
-	Title = "Other Music",
-	Description = "Ấn để bật/tắt nhạc thứ 3",
+	Title = "Tắt / Bật nhạc",
+	Description = "Bật hoặc tắt âm thanh nền",
 	Callback = function()
-		ToggleSound(OtherSound)
+		if Sound.IsPlaying then
+			Sound:Pause()
+		else
+			Sound:Play()
+		end
 	end
 })
 
--- Main1 buttons
+Tabs.Main0:AddButton({
+	Title = "Tắt Script",
+	Description = "Tắt toàn bộ GUI và nhạc",
+	Callback = function()
+		Sound:Stop()
+		ScreenGui:Destroy()
+		for _, gui in pairs(game.CoreGui:GetChildren()) do
+			if gui.Name == "Fluent" then
+				gui:Destroy()
+			end
+		end
+		print("✅ Script đã tắt hoàn toàn.")
+	end
+})
+
+--// 🔥 Tab plan vs brainrot
 Tabs.Main1:AddButton({
 	Title = "speed hub",
 	Description = "có key",
@@ -114,7 +120,7 @@ Tabs.Main1:AddButton({
 	end
 })
 
--- Main2 buttons
+--// 🌲 Tab 99 night in Forset
 Tabs.Main2:AddButton({
 	Title = "cao mod script kaitun auto fram day",
 	Description = "cre: caomod",
@@ -154,3 +160,4 @@ Tabs.Main2:AddButton({
 		loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/7d8a2a1a9a562a403b52532e58a14065.lua"))()
 	end
 })
+
