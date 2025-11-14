@@ -1,3 +1,6 @@
+local Players = game:GetService("Players")
+local TweenService = game:GetService("TweenService")
+
 local ScreenGui = Instance.new("ScreenGui")
 local ImageButton = Instance.new("ImageButton")
 local UICorner = Instance.new("UICorner")
@@ -41,6 +44,31 @@ local Tabs = {
     Main4 = Window:AddTab({ Title = "mai update" }),
     Main5 = Window:AddTab({ Title = "mai update" }),
 }
+
+-- Thêm ảnh Spyders dog khi GUI load
+do
+    local player = Players.LocalPlayer
+    local gui = player:WaitForChild("PlayerGui")
+
+    local imageGui = Instance.new("ScreenGui")
+    imageGui.Name = "IntroImageGui"
+    imageGui.Parent = gui
+
+    local imageLabel = Instance.new("ImageLabel")
+    imageLabel.Size = UDim2.new(0, 300, 0, 300)
+    imageLabel.Position = UDim2.new(0.5, -150, 0.5, -150)
+    imageLabel.BackgroundTransparency = 1
+    imageLabel.ImageTransparency = 0
+    imageLabel.Image = "rbxassetid://1578767"
+    imageLabel.Parent = imageGui
+
+    task.delay(5, function()
+        local tween = TweenService:Create(imageLabel, TweenInfo.new(1), {ImageTransparency = 1})
+        tween:Play()
+        tween.Completed:Wait()
+        imageGui:Destroy()
+    end)
+end
 
 -- Main1 buttons
 Tabs.Main1:AddButton({
