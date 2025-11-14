@@ -34,10 +34,15 @@ local Window = Fluent:CreateWindow({
 })
 
 local Tabs = {
+    Main0 = Window:AddTab({ Title = "" }),
     Main1 = Window:AddTab({ Title = "plan vs brainrot" }),
     Main2 = Window:AddTab({ Title = "99 night in Forest" }),
+    Main3 = Window:AddTab({ Title = "mai update" }),
+    Main4 = Window:AddTab({ Title = "mai update" }),
+    Main5 = Window:AddTab({ Title = "mai update" }),
 }
 
+-- Main1 buttons
 Tabs.Main1:AddButton({
     Title = "speed hub",
     Description = "có key",
@@ -62,6 +67,7 @@ Tabs.Main1:AddButton({
     end
 })
 
+-- Main2 buttons
 Tabs.Main2:AddButton({
     Title = "cao mod script kaitun auto fram day",
     Description = "cre: caomod",
@@ -101,4 +107,3 @@ Tabs.Main2:AddButton({
         loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/7d8a2a1a9a562a403b52532e58a14065.lua"))()
     end
 })
-
