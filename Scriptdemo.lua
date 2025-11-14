@@ -23,7 +23,7 @@ end)
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 repeat wait() until game:IsLoaded()
 local Window = Fluent:CreateWindow({
-    Title = "TBoy Roblox Tổng Hợp",
+    Title = "Vietnguvaiz",
     SubTitle = "Blox Fruit",
     TabWidth = 157,
     Size = UDim2.fromOffset(450, 300),
@@ -32,51 +32,14 @@ local Window = Fluent:CreateWindow({
     MinimizeKey = Enum.KeyCode.End
 })
 local Tabs = {
-        Main0 = Window:AddTab({ Title = "Music" }),
+        Main0 = Window:AddTab({ Title = "" }),
 	Main1 = Window:AddTab({ Title = "plan vs brainrot" }),
 	Main2 = Window:AddTab({ Title = "99 night in Forset" }),
 	Main3 = Window:AddTab({ Title = "mai update" }),
 	Main4 = Window:AddTab({ Title = "mai update" }),
 	Main5 = Window:AddTab({ Title = "mai update" }),
 }
-    Tabs.Main0:AddButton({
-    Title = "Discord",
-    Description = "TBoyRoblox Community",
-    Callback = function()
-        setclipboard("https://discord.gg/tboyroblox-community-1253927333920899153")
-    end
-})
-
-    Tabs.Main0:AddButton({
-    Title = "Youtuber",
-    Description = "TBoy Roblox",
-    Callback = function()
-        setclipboard("https://www.youtube.com/@TBoyRoblox08")
-    end
-})
-
-    Tabs.Main0:AddButton({
-    Title = "Youtuber",
-    Description = "TBoy Gamer",
-    Callback = function()
-        setclipboard("https://www.youtube.com/@TBoyGamer08")
-    end
-})
-    
     Tabs.Main1:AddButton({
-    Title="Redz Hub",
-    Description="",
-    Callback=function()
-	  local Settings = {
-  JoinTeam = "Pirates"; -- Pirates/Marines
-  Translator = true; -- true/false
-}
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/newredz/BloxFruits/refs/heads/main/Source.luau"))(Settings)
-  end
-})
-
-Tabs.Main1:AddButton({
     Title="GreenZ Hub",
     Description="",
     Callback=function()
